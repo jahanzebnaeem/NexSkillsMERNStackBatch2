@@ -1,9 +1,14 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const date = require(__dirname + "/date.js");
+
+// console.log(date);
+// console.log(date());
 
 const app = express();
 
-var items = ["Buy Food", "Cook Food", "Eat Food"];
+const items = ["Buy Food", "Cook Food", "Eat Food"];
+const workItems = [];
 
 app.set("view engine", "ejs");
 
@@ -11,57 +16,36 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 app.get("/", function(req, res) {
-  var todayDate = new Date();
-  // var today = todayDate.getDay();
-  // var day = "";
-  // console.log(todayDate);
-  // if (today === 6 || today === 0) {
-  //   res.send("Weekend");
-  // } else {
-  //   res.send("Weekday");
-  // }
-  // switch (today) {
-  //   case 0:
-  //     day = "Sunday";
-  //     break;
-  //   case 1:
-  //     day = "Monday";
-  //     break;
-  //   case 2:
-  //     day = "Tuesday";
-  //     break;
-  //   case 3:
-  //     day = "Wednesday";
-  //     break;
-  //   case 4:
-  //     day = "Thurday";
-  //     break;
-  //   case 5:
-  //     day = "Friday";
-  //     break;
-  //   case 6:
-  //     day = "Saturday";
-  //     break;
-  //   default:
-  //     console.log("Days have passed the limit");
-  // }
+  const day = date.getDate();
 
-  const options = {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-  };
-
-  var day = todayDate.toLocaleDateString("en-US", options);
-
-  res.render("list", {dayOfWeek: day, newItems: items});
+  res.render("list", {listTitle: day, newItems: items});
 });
 
 app.post("/", function(req, res) {
-  var item = req.body.newItem;
-  items.push(item);
-  // console.log(item);
-  res.redirect("/");
+  // console.log(req.body);
+  const item = req.body.newItem;
+  if (req.body.list === "Work") {
+    workItems.push(item);
+    res.redirect("/work");
+  } else {
+    items.push(item);
+    // console.log(item);
+    res.redirect("/");
+  }
+});
+
+app.get("/work", function(req, res) {
+  res.render("list", {listTitle: "Work List", newItems: workItems});
+});
+
+// app.post("/work", function(req, res) {
+//   var item = req.body.newItem;
+//   workItems.push(item);
+//   res.redirect("/work");
+// });
+
+app.get("/about", function(req, res) {
+  res.render("about");
 });
 
 app.listen(3000, function() {
