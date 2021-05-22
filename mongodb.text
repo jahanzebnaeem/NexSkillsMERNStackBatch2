@@ -75,3 +75,8 @@ db.products.insertOne(
   orderNumber: 3242,
   productsOrdered: [1, 2]
 }
+
+
+Delete Database
+Use shopDB
+Db.dropDatabase()

@@ -1,0 +1,43 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 Monaco;\f2\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red46\green45\blue42;\red255\green255\blue255;\red31\green36\blue45;
+\red162\green70\blue22;\red63\green69\blue80;}
+{\*\expandedcolortbl;;\cssrgb\c23529\c23137\c21569;\cssrgb\c100000\c100000\c100000;\cssrgb\c16078\c18824\c23137;
+\cssrgb\c70196\c35294\c10588;\cssrgb\c31373\c34118\c38824;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{none\}}{\leveltext\leveltemplateid1\'00;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs72 \cf2 \cb3 \expnd0\expndtw0\kerning0
+If You Have Forgotten to Quit the Mongod Server\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs36 \cf2 \cb3 You can use CTRL +\'a0C in your Terminal to shut down your mongod connection.\cb1 \
+\
+\cb3 If you have closed down Terminal or Hyper and forgot to close down your mongod connection, you might get an error that says:\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0
+\f1\fs24 \cf4 \cb3 \kerning1\expnd0\expndtw0 		\expnd0\expndtw0\kerning0
+2018-11-04T16:17:53.473+1300 E STORAGE\'a0 [initandlisten] Failed to \cf5 set\cf4  up listener: SocketException: Address already \cf5 in\cf4  \cf5 use\cf6 \cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0\cf4 \cb3 \kerning1\expnd0\expndtw0 		\expnd0\expndtw0\kerning0
+2018-11-04T16:17:53.474+1300 I CONTROL\'a0 [initandlisten] now exiting\cf6 \cb1 \
+\ls1\ilvl0\cf4 \cb3 \kerning1\expnd0\expndtw0 		\expnd0\expndtw0\kerning0
+2018-11-04T16:17:53.474+1300 I CONTROL\'a0 [initandlisten] shutting down \cf5 with\cf4  code:48\cf6 \cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs36 \cf2 \cb3 In this case, you'll have to follow these steps to manually shut down the mongod process:\cb1 \
+\cb3 1. Open up a fresh Hyper Terminal tab\cb1 \
+\cb3 2. Paste the command below into Hyper:\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs32\fsmilli16200 \cf5 \cb3 sudo pkill -f mongod
+\f0\fs36 \cf2 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb3 3. Now enter the password that you use to log on to the Mac.\cb1 \
+\cb3 4. Open a new Hyper terminal, you should now be able to run the 
+\f2\fs32\fsmilli16200 \cf5 mongod
+\f0\fs36 \cf2  command again.}
