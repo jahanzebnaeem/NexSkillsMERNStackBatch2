@@ -64,6 +64,59 @@ const Fruit = mongoose.model("Fruit", fruitSchema);
 //
 // fruit.save();
 
+const personSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+  favoriteFruit: fruitSchema
+});
+
+const Person = mongoose.model("Person", personSchema);
+
+// const person = new Person({
+//   name: "Jahanzeb",
+//   age: 39
+// });
+
+// const pineapple = new Fruit({
+//   name: "Pineapple",
+//   rating: 1,
+//   review: "Good Fruit"
+// });
+//
+// pineapple.save();
+
+// const mango = new Fruit({
+//   name: "Mango",
+//   rating: 1,
+//   review: "Good Fruit"
+// });
+//
+// mango.save();
+
+const papaya = new Fruit({
+  name: "Papaya",
+  rating: 1,
+  review: "Good Fruit"
+});
+
+papaya.save();
+
+// const person = new Person({
+//   name: "Alishba",
+//   age: 11,
+//   favoriteFruit: mango
+// });
+//
+// person.save();
+
+Person.updateOne({name: "Jahanzeb"}, {favoriteFruit: papaya}, function(err) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Successfully updated the doc");
+  }
+});
+
 Fruit.find(function(err, fruits) {
   if (err) {
     console.log(err);
